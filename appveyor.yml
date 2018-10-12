@@ -1,0 +1,28 @@
+version: 1.0.{build}
+image:
+- Visual Studio 2017
+- Visual Studio 2015
+configuration: relese
+platform:
+- x64
+- x86
+nuget:
+  account_feed: true
+  project_feed: true
+build:
+  project: https://github.com/johnathonm1981/ray/blob/master/GettingStartedWithRTXRayTracing.sln
+  parallel: true
+  verbosity: minimal
+artifacts:
+- path: '*'
+- path: '*'
+deploy:
+- provider: Local
+  sss: ssss
+notifications:
+- provider: Email
+  to:
+  - johnathonm@gmail.com
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
